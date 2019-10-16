@@ -20,6 +20,7 @@ namespace MUDling
     {
         public Startup(IConfiguration configuration)
         {
+
             Configuration = configuration;
         }
 
