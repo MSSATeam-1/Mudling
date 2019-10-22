@@ -2,33 +2,32 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core" class="btn btn-success text-white btn-outline-dark border-success">building Web apps with ASP.NET Core</a>.</p>
-</div>
-''
-<div class="text-white">
-    <form action="/action_page.php" class="align-self-center">
-        <input type="text" readonly class="form-control-plaintext text-white" placeholder="@($"Current User: {User.Identity.Name} ")" value="@User.Identity.Name"><br>
-        Short Description: <input type="text" name="Short Description" value="Enter Here"><br>
-        Long Description: <input type="text" name="ProductName" value="Enter Here"><br>
-        Main Picture or Video: <input type="file" id="imgMain"><br>
+    <div class="wrapper d-flex flex-row">
+        <div class="text-white">
+            @using (Html.BeginForm("CreateDungeon", "Home", FormMethod.Get))
+            {
+                <input type="text" readonly class="form-control-plaintext text-white" placeholder="@($"Current User: {User.Identity.Name} ")" value="@User.Identity.Name"><br>
+                <table>
+                    <tr>
+                        <td>Enter Name: </td>
+                        <td>@Html.TextBox("Name")</td>
+                    </tr>
+                    <tr>
+                        <td>Enter Description: </td>
+                        <td>@Html.TextBox("Description")</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit" value="Submit"></td>
+                    </tr>
+                </table>
 
-        Pic1: <input type="file" id="pic1"><br>
-        Pic2: <input type="file" id="pic2"><br>
-        Pic3: <input type="file" id="pic3"><br>
-        Pic4: <input type="file" id="pic4"><br>
-        Pic5: <input type="file" id="pic5"><br>
-        Pic6: <input type="file" id="pic6"><br>
+                @*<input type="submit" value="Submit" class="btn btn-success text-white btn-outline-dark border-success">*@
+            }
 
-        Upsale Link1: <input type="text" name="Upsale1" value="Enter Here"><br>
-        Cross-Sale Link1: <input type="text" name="Cross-Sale1" value="Enter Here"><br>
-        Related Sale Link1: <input type="text" name="Related Sale1" value="Enter Here"><br>
 
-        <input type="submit" value="Submit" class="btn btn-success text-white btn-outline-dark border-success">
-    </form>
-
-</div>
+        </div>
+        <div class="flex-fill" style="background-color:black">Hello</div>
+    </div>
 
 <footer>
     <a href="example.com">Links bar</a>
