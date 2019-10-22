@@ -10,7 +10,7 @@ namespace MUDling.Models
     public class DungeonDB : IdentityDbContext<AppUser>
     {
         public DungeonDB(DbContextOptions<DungeonDB> options) : base(options) { } //uses default ASP.Net options for database configuration
-        public DbSet <Dungeon> Dungeons { get; set; }
+        public DbSet <MUDling.Models.Dungeon> Dungeons { get; set; }
         //public DbSet <AppUser> UserID { get; set; }
 
     }

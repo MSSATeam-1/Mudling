@@ -10,6 +10,12 @@ namespace MUDling.Controllers
 {
     public class HomeController : Controller
     {
+        private DungeonDB _context;
+
+        HomeController(DungeonDB context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
@@ -18,6 +24,20 @@ namespace MUDling.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult CreateDungeon(string name, string description)
+        {
+            var dungeon = new Dungeon
+            {
+                Name = name,
+                Description = description
+            };
+            _context.Add(dungeon);
+            _context.SaveChanges();
+            ViewBag.Name = name;
+            ViewBag.Description = description;
+            return View("CreateDungeon");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
