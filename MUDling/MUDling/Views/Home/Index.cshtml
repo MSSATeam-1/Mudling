@@ -4,7 +4,7 @@
 
     <div class="wrapper d-flex flex-row">
         <div class="text-white">
-            @using (Html.BeginForm("CreateDungeon", "Home", FormMethod.Get))
+            @using (Html.BeginForm("CreateDungeon", "Home", FormMethod.Post))
             {
                 <input type="text" readonly class="form-control-plaintext text-white" placeholder="@($"Current User: {User.Identity.Name} ")" value="@User.Identity.Name"><br>
                 <table>
@@ -26,7 +26,7 @@
 
 
         </div>
-        <div class="flex-fill" style="background-color:black">Hello</div>
+        <div class="flex-fill text-white" style="background-color:black">Dungeon Name = @ViewBag.Name : Dungeon Description = @ViewBag.Description User = @ViewBag.Id</div>
     </div>
 
 <footer>
